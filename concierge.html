@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Concierge | SKARA Atelier Shoes</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body data-page="concierge">
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="announcement">Private global delivery for signature clients</div>
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="brand" href="index.html"><span class="brand-mark">SKARA</span><span class="brand-sub">Atelier Shoes</span></a>
+          <div class="nav-links"><a data-nav="home" href="index.html">Home</a><a data-nav="collections" href="collections.html">Collections</a><a data-nav="men" href="men.html">Men</a><a data-nav="women" href="women.html">Women</a><a data-nav="kids" href="kids.html">Kids</a><a data-nav="concierge" href="concierge.html">Concierge</a></div>
+          <div class="nav-actions"><button class="icon-button" type="button" aria-label="Search">⌕</button><button class="bag-button" type="button" aria-label="Open bag">◇<span class="bag-count" data-bag-count>0</span></button><button class="menu-toggle" type="button" aria-label="Open menu" data-menu-toggle aria-expanded="false">☰</button></div>
+        </nav>
+      </header>
+      <main>
+        <section class="page-hero">
+          <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=2200&q=90" alt="Luxury boutique private room">
+          <div class="page-hero-inner">
+            <span class="eyebrow">Private client desk</span>
+            <h1>Tell us the pair. We move quietly.</h1>
+            <p>Book private fitting, rare sourcing, family wardrobe planning, care services, or delivery coordination through one discreet desk.</p>
+          </div>
+        </section>
+        <section class="section">
+          <div class="concierge-grid">
+            <div class="contact-panel" data-reveal>
+              <h2>Concierge request</h2>
+              <p>Submit your preferred category, size range, brand, destination, and timeline. This frontend demo shows the client-side flow.</p>
+              <form class="form-grid" data-concierge-form>
+                <div><label class="eyebrow" for="name">Name</label><input id="name" required placeholder="Client name"></div>
+                <div><label class="eyebrow" for="email">Email</label><input id="email" type="email" required placeholder="client@email.com"></div>
+                <div><label class="eyebrow" for="service">Service</label><select id="service"><option>Private fitting</option><option>Rare sourcing</option><option>Family wardrobe</option><option>Care atelier</option></select></div>
+                <div><label class="eyebrow" for="department">Department</label><select id="department"><option>Men</option><option>Women</option><option>Kids</option><option>All departments</option></select></div>
+                <div class="full"><label class="eyebrow" for="request">Request</label><textarea id="request" placeholder="Brand, size, event, destination, deadline"></textarea></div>
+                <div class="full"><button class="button" type="submit">Send request</button></div>
+              </form>
+            </div>
+            <div>
+              <div class="service-grid">
+                <article class="service-item" data-reveal><strong>Rare Pair Search</strong><p>Limited releases, sold-out sizes, archival designer shoes, and special materials.</p></article>
+                <article class="service-item" data-reveal><strong>Family Wardrobe</strong><p>Men, women, and kids seasonal planning for school, travel, resort, and formal events.</p></article>
+                <article class="service-item" data-reveal><strong>Care Atelier</strong><p>Protection, polishing, heel refreshes, sole guards, and storage guidance.</p></article>
+              </div>
+              <div class="editorial-grid" style="margin-top:18px">
+                <article class="editorial-item" data-reveal><img src="https://images.unsplash.com/photo-1603808033192-082d6919d3e1?auto=format&fit=crop&w=900&q=88" alt="Luxury mule shoe"><div><span class="eyebrow">Women</span><h3>Occasion heels</h3><p>Styling notes for weddings, galas, and private dinners.</p></div></article>
+                <article class="editorial-item" data-reveal><img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&w=900&q=88" alt="Sport sneakers"><div><span class="eyebrow">Sport</span><h3>Performance edit</h3><p>Travel-ready cushioning and elite training silhouettes.</p></div></article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"><div class="footer-inner"><div><h3>SKARA Atelier Shoes</h3><p>Luxury footwear curation for private clients, collectors, families, and executive wardrobes.</p></div><div><h4>Shop</h4><a href="collections.html">All collections</a><a href="men.html">Men</a><a href="women.html">Women</a><a href="kids.html">Kids</a></div><div><h4>Categories</h4><a href="collections.html">Sneakers</a><a href="collections.html">Dress shoes</a><a href="collections.html">High heels</a><a href="collections.html">School</a></div><div><h4>Client Desk</h4><a href="concierge.html">Concierge</a><a href="concierge.html">Private fitting</a><a href="concierge.html">Rare sourcing</a></div></div></footer>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
