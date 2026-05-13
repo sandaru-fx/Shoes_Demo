@@ -50,7 +50,7 @@
           <h3>${product.name}</h3>
           <div class="price-row">
             <span class="price">${money.format(product.price)}</span>
-            <button class="quick-add" type="button" aria-label="Add ${product.name} to bag" data-add="${product.name}">+</button>
+            <button class="add-to-cart-btn button" type="button" aria-label="Add ${product.name} to bag" data-add="${product.name}">Add to Cart</button>
           </div>
         </div>
       </article>
@@ -178,7 +178,7 @@
       cartCount += 1;
       localStorage.setItem("skaraCartCount", String(cartCount));
       updateBag();
-      showToast(`${button.dataset.add} added to your private fitting bag.`);
+      showToast(`${button.dataset.add} added to your cart.`);
     });
   }
 
@@ -190,6 +190,59 @@
         form.reset();
       });
     });
+  }
+
+  function setupCustomCursor() {
+    if (window.matchMedia("(max-width: 920px)").matches) return; // Disable on mobile
+    
+    const cursor = document.createElement("div");
+    cursor.className = "luxury-cursor";
+    document.body.appendChild(cursor);
+
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+    });
+
+    // Update hoverables on body so it works for dynamic content
+    document.body.addEventListener("mouseover", (e) => {
+      const hoverable = e.target.closest("a, button, input, .product-card, .category-tile");
+      if (hoverable) cursor.classList.add("is-hovering");
+    });
+    document.body.addEventListener("mouseout", (e) => {
+      const hoverable = e.target.closest("a, button, input, .product-card, .category-tile");
+      if (hoverable) cursor.classList.remove("is-hovering");
+    });
+  }
+
+  function setupLiveChat() {
+    const chatContainer = document.createElement("div");
+    chatContainer.className = "live-chat-widget";
+    chatContainer.innerHTML = `
+      <button class="chat-toggle" aria-label="Open Concierge Chat">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      </button>
+      <div class="chat-window">
+        <div class="chat-header">
+          <strong>Private Concierge</strong>
+          <button class="chat-close" aria-label="Close Chat">×</button>
+        </div>
+        <div class="chat-body">
+          <div class="chat-message agent">Welcome to SKARA. How may I assist you today?</div>
+        </div>
+        <div class="chat-footer">
+          <input type="text" placeholder="Type a message..." aria-label="Chat input">
+          <button type="button">Send</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(chatContainer);
+
+    const toggle = chatContainer.querySelector(".chat-toggle");
+    const close = chatContainer.querySelector(".chat-close");
+    const windowEl = chatContainer.querySelector(".chat-window");
+
+    toggle.addEventListener("click", () => windowEl.classList.add("is-open"));
+    close.addEventListener("click", () => windowEl.classList.remove("is-open"));
   }
 
   setActiveNav();
@@ -205,4 +258,6 @@
   setupCart();
   setupForms();
   setupReveal();
+  setupCustomCursor();
+  setupLiveChat();
 })();
