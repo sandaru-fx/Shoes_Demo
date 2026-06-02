@@ -15,9 +15,11 @@
   function setupMenu() {
     const toggle = document.querySelector("[data-menu-toggle]");
     if (!toggle) return;
+    const defaultIcon = toggle.textContent;
     toggle.addEventListener("click", () => {
-      document.body.classList.toggle("nav-open");
-      toggle.setAttribute("aria-expanded", String(document.body.classList.contains("nav-open")));
+      const isOpen = document.body.classList.toggle("nav-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.textContent = isOpen ? "✕" : defaultIcon;
     });
   }
 
@@ -150,9 +152,11 @@
   function setupFilterToggle() {
     const toggle = document.querySelector("[data-filter-toggle]");
     if (!toggle) return;
+    const defaultIcon = toggle.textContent;
     toggle.addEventListener("click", () => {
-      document.body.classList.toggle("filters-open");
-      toggle.setAttribute("aria-expanded", String(document.body.classList.contains("filters-open")));
+      const isOpen = document.body.classList.toggle("filters-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.textContent = isOpen ? "✕" : defaultIcon;
     });
   }
 
