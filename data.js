@@ -15,7 +15,7 @@ const SKARA_PRODUCTS = [
     category: "Dress Shoes",
     price: 1890,
     badge: "Handmade",
-    image: "https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=1200&q=88"
+    image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=1200&q=88"
   },
   {
     name: "Velocity Carbon Runner",
@@ -115,7 +115,7 @@ const SKARA_PRODUCTS = [
     category: "Loafers",
     price: 1100,
     badge: "Classic",
-    image: "https://images.unsplash.com/photo-1614252200444-24581452818c?auto=format&fit=crop&w=1200&q=88"
+    image: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=1200&q=88"
   },
   {
     name: "Alessandro Leather Boot",
@@ -160,7 +160,7 @@ const SKARA_PRODUCTS = [
     category: "Loafers",
     price: 980,
     badge: "Suede",
-    image: "https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=1200&q=88"
+    image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=1200&q=88"
   },
   {
     name: "Super-Star Classic",
