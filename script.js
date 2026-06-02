@@ -245,6 +245,18 @@
     close.addEventListener("click", () => windowEl.classList.remove("is-open"));
   }
 
+  function setupHeaderActions() {
+    const searchBtns = document.querySelectorAll(".icon-button[aria-label='Search']");
+    searchBtns.forEach(btn => {
+      btn.addEventListener("click", () => showToast("Search functionality will be available in the full version."));
+    });
+    
+    const bagBtns = document.querySelectorAll(".bag-button");
+    bagBtns.forEach(btn => {
+      btn.addEventListener("click", () => showToast(cartCount > 0 ? `You have ${cartCount} item(s) in your bag.` : "Your bag is currently empty."));
+    });
+  }
+
   setActiveNav();
   setupMenu();
   updateBag();
@@ -260,4 +272,5 @@
   setupReveal();
   setupCustomCursor();
   setupLiveChat();
+  setupHeaderActions();
 })();
