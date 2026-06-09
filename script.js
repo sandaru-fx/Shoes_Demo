@@ -12,14 +12,34 @@
     });
   }
 
+  function closeMenu() {
+    const toggle = document.querySelector("[data-menu-toggle]");
+    if (!toggle) return;
+    const defaultIcon = toggle.dataset.defaultIcon || "☰";
+    document.body.classList.remove("nav-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.textContent = defaultIcon;
+  }
+
   function setupMenu() {
     const toggle = document.querySelector("[data-menu-toggle]");
     if (!toggle) return;
     const defaultIcon = toggle.textContent;
+    toggle.dataset.defaultIcon = defaultIcon;
     toggle.addEventListener("click", () => {
       const isOpen = document.body.classList.toggle("nav-open");
       toggle.setAttribute("aria-expanded", String(isOpen));
       toggle.textContent = isOpen ? "✕" : defaultIcon;
+    });
+
+    document.querySelectorAll("[data-nav]").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!document.body.classList.contains("nav-open")) return;
+      const nav = document.querySelector(".nav");
+      if (nav && !nav.contains(event.target)) closeMenu();
     });
   }
 
@@ -149,14 +169,33 @@
     applyFilters();
   }
 
+  function closeFilters() {
+    const toggle = document.querySelector("[data-filter-toggle]");
+    if (!toggle) return;
+    const defaultIcon = toggle.dataset.defaultIcon || "☷";
+    document.body.classList.remove("filters-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.textContent = defaultIcon;
+  }
+
   function setupFilterToggle() {
     const toggle = document.querySelector("[data-filter-toggle]");
     if (!toggle) return;
     const defaultIcon = toggle.textContent;
+    toggle.dataset.defaultIcon = defaultIcon;
     toggle.addEventListener("click", () => {
       const isOpen = document.body.classList.toggle("filters-open");
       toggle.setAttribute("aria-expanded", String(isOpen));
       toggle.textContent = isOpen ? "✕" : defaultIcon;
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!document.body.classList.contains("filters-open")) return;
+      const panel = document.querySelector(".filter-panel");
+      const toolbar = document.querySelector(".shop-toolbar");
+      if (panel && !panel.contains(event.target) && toolbar && !toolbar.contains(event.target)) {
+        closeFilters();
+      }
     });
   }
 
