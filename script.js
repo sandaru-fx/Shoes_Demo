@@ -51,14 +51,28 @@
       toggle.textContent = isOpen ? "✕" : defaultIcon;
     });
 
+    const navLinks = document.querySelector(".nav-links");
+
     document.querySelectorAll("[data-nav]").forEach((link) => {
       link.addEventListener("click", closeMenu);
+      link.addEventListener("touchend", (event) => {
+        if (!document.body.classList.contains("nav-open")) return;
+        const href = link.getAttribute("href");
+        if (!href) return;
+        event.preventDefault();
+        closeMenu();
+        window.location.assign(href);
+      }, { passive: false });
     });
 
     document.addEventListener("click", (event) => {
       if (!document.body.classList.contains("nav-open")) return;
       const nav = document.querySelector(".nav");
-      if (nav && !nav.contains(event.target)) closeMenu();
+      const toggle = document.querySelector("[data-menu-toggle]");
+      const insideMenu = (navLinks && navLinks.contains(event.target))
+        || (nav && nav.contains(event.target))
+        || (toggle && toggle.contains(event.target));
+      if (!insideMenu) closeMenu();
     });
   }
 

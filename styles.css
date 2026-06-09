@@ -40,6 +40,26 @@ body.modal-open {
   overflow: hidden;
 }
 
+body.nav-open main,
+body.nav-open .live-chat-widget,
+body.nav-open .cart-backdrop,
+body.nav-open .cart-drawer {
+  pointer-events: none;
+}
+
+body.nav-open .topbar {
+  z-index: 100001;
+  pointer-events: auto;
+}
+
+body.nav-open .nav-links {
+  pointer-events: auto;
+}
+
+body.nav-open .live-chat-widget {
+  display: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -281,6 +301,11 @@ textarea {
   padding: clamp(72px, 10vh, 132px) 0 88px;
 }
 
+.hero h1 {
+  color: #fff;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
 .eyebrow {
   color: var(--gold);
   font-size: 0.78rem;
@@ -300,7 +325,15 @@ textarea {
   line-height: 0.88;
 }
 
-.hero p,
+.hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #fff;
+  font-size: clamp(1.02rem, 1.4vw, 1.22rem);
+  line-height: 1.6;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
 .page-hero p {
   max-width: 720px;
   margin: 0 auto;
@@ -1210,10 +1243,14 @@ textarea {
 
   body.nav-open .nav-links {
     display: flex;
+    z-index: 100002;
+    padding-bottom: 32px;
   }
 
   .nav-links a {
-    padding: 14px 0;
+    position: relative;
+    z-index: 1;
+    padding: 16px 0;
     font-size: 0.92rem;
   }
 
@@ -1377,10 +1414,9 @@ textarea {
     padding: 56px 0 132px;
   }
 
-  .hero-slide::before {
-    background:
-      linear-gradient(180deg, rgba(255, 253, 248, 0.22) 0%, rgba(255, 253, 248, 0.08) 45%, rgba(255, 253, 248, 0.55) 100%),
-      linear-gradient(0deg, rgba(0, 0, 0, 0.18), transparent 60%);
+  .hero-slide::before,
+  .page-hero::before {
+    background: linear-gradient(180deg, rgba(255, 253, 248, 0.76), rgba(255, 253, 248, 0.9) 78%);
   }
 
   .page-hero {
@@ -1398,7 +1434,13 @@ textarea {
     line-height: 0.95;
   }
 
-  .hero p,
+  .hero p {
+    color: #fff;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+  }
+
   .page-hero p {
     font-size: 0.98rem;
     line-height: 1.55;
