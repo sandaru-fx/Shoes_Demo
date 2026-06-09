@@ -853,8 +853,20 @@
     });
   }
 
+  function setupHeroActions() {
+    document.querySelectorAll(".hero-actions a[href]").forEach((link) => {
+      link.addEventListener("touchend", (event) => {
+        const href = link.getAttribute("href");
+        if (!href) return;
+        event.preventDefault();
+        window.location.assign(href);
+      }, { passive: false });
+    });
+  }
+
   setActiveNav();
   setupMenu();
+  setupHeroActions();
   updateBag();
   renderBrands();
   renderProducts();

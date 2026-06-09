@@ -427,6 +427,12 @@ textarea {
   display: flex;
   align-items: center;
   gap: 12px;
+  pointer-events: none;
+}
+
+.hero-controls .hero-arrow,
+.hero-controls .hero-dot {
+  pointer-events: auto;
 }
 
 .hero-dots {
@@ -1260,13 +1266,25 @@ textarea {
   }
 
   .hero-content {
-    padding: 72px 0 148px;
+    z-index: 10;
+    padding: 72px 0 188px;
+  }
+
+  .hero-actions {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-actions .button {
+    position: relative;
+    z-index: 2;
   }
 
   .hero-controls {
     left: 50%;
-    bottom: 148px;
+    bottom: 108px;
     transform: translateX(-50%);
+    pointer-events: none;
   }
 
   .hero-panel {
@@ -1278,6 +1296,7 @@ textarea {
     margin: 0;
     transform: translateX(-50%);
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    pointer-events: none;
   }
 
   .hero-stat {
@@ -1410,24 +1429,28 @@ textarea {
   }
 
   .hero-content {
+    z-index: 10;
     width: min(100% - 24px, 1440px);
-    padding: 56px 0 132px;
+    padding: 56px 0 176px;
+    background: transparent;
+    box-shadow: none;
   }
 
-  .hero-slide::before,
-  .page-hero::before {
-    background: linear-gradient(180deg, rgba(255, 253, 248, 0.76), rgba(255, 253, 248, 0.9) 78%);
-  }
-
-  .page-hero {
-    min-height: 360px;
+  .hero-slide::before {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.75) 100%);
   }
 
   .page-hero::before {
     background: linear-gradient(180deg, rgba(255, 253, 248, 0.35), rgba(255, 253, 248, 0.72) 78%);
   }
 
-  .hero h1,
+  .hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  }
+
   .page-hero h1 {
     margin-top: 12px;
     font-size: clamp(2.4rem, 12vw, 3.6rem);
@@ -1435,10 +1458,10 @@ textarea {
   }
 
   .hero p {
-    color: #fff;
-    font-size: 0.98rem;
-    line-height: 1.55;
-    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
   }
 
   .page-hero p {
@@ -1456,14 +1479,42 @@ textarea {
     min-height: 46px;
   }
 
+  .hero-actions .button.secondary {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
   .hero-controls {
-    bottom: 128px;
+    bottom: 96px;
+  }
+
+  .hero-dot {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .hero-dot.is-active,
+  .hero-dot:hover {
+    border-color: var(--gold);
+    background: var(--gold);
+  }
+
+  .hero-arrow {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 
   .hero-panel {
     bottom: 16px;
     width: min(calc(100% - 24px), 420px);
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    pointer-events: none;
   }
 
   .hero-stat {
